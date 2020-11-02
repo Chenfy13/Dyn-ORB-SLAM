@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 project(ORB_SLAM2)
-SET(TORCH_PATH /home/wcx/libtorch1.3.1cuda10.0/share/cmake/Torch)
+SET(TORCH_PATH /home/chen/pytorch/torch/share/cmake/Torch)
 
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE Release)
