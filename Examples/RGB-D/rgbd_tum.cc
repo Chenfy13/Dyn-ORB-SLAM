@@ -132,15 +132,16 @@ int main(int argc, char **argv)
         auto img_tensor = torch::from_blob(img_float.data, {1, input_image_size, input_image_size, 3}).to(device);
         img_tensor = img_tensor.permute({0,3,1,2});
 
-        auto start = std::chrono::high_resolution_clock::now();
+        //auto start = std::chrono::high_resolution_clock::now();
+        std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 
         auto output = net.forward(img_tensor);
 
         auto result = net.write_results(output, 80, 0.6, 0.4);
 
-        auto end = std::chrono::high_resolution_clock::now();
+        //auto end = std::chrono::high_resolution_clock::now();
 
-        auto duration = duration_cast<milliseconds>(end - start);
+        //auto duration = duration_cast<milliseconds>(end - start);
 
         if(result.dim()>1){
             int obj_num=result.size(0);
@@ -168,7 +169,7 @@ int main(int argc, char **argv)
             }
         }
 
-        std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
+       // std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 
 
         // Pass the image to the SLAM system
